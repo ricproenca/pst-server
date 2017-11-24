@@ -1,17 +1,17 @@
 import express from 'express';
-var path = require('path');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-var expressValidator = require('express-validator');
+import path from 'path';
+import logger from 'morgan';
+import bodyParser from 'body-parser';
+import expressValidator from 'express-validator';
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+import index from './routes/index';
+import users from './routes/users';
 
-var compression = require('compression');
-var helmet = require('helmet');
+import compression from 'compression';
+import helmet from 'helmet';
 
 // Create the Express application object
-var app = express();
+const app = express();
 
 app.use(helmet());
 
