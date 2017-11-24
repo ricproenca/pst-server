@@ -1,4 +1,4 @@
-var express = require('express');
+import express from 'express';
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
