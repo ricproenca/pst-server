@@ -11,23 +11,6 @@ import config from './config.json';
 import index from './routes/index';
 import users from './routes/users';
 
-// Swagger definition
-const swaggerDefinition = {
-  info: {
-    title: 'Node Swagger API',
-    version: '0.0.1',
-    description: 'Demonstrating how to desribe a RESTful API with Swagger'
-  },
-  host: 'localhost:4000',
-  basePath: '/'
-};
-
-// Swagger docs options
-const options = {
-  swaggerDefinition: swaggerDefinition, // import swaggerDefinitions
-  apis: ['./routes/*.js'] // path to the API docs
-};
-
 // initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(config.swagger);
 
