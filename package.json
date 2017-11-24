@@ -11,7 +11,7 @@
   "scripts": {
     "lint:js": "eslint app.js routes/ test/ bin/ --cache",
     "devstart": "nodemon ./bin/www --exec babel-node",
-    "start": "babel-node ./bin/www",
+    "start": "babel ./bin/www",
     "build": "babel routes views public/** app.js -d dist",
     "test": "mocha --compilers js:babel-register"
   },
