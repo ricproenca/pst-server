@@ -3,12 +3,32 @@ import path from 'path';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import expressValidator from 'express-validator';
+import compression from 'compression';
+import helmet from 'helmet';
+import swaggerJSDoc from 'swagger-jsdoc';
 
 import index from './routes/index';
 import users from './routes/users';
 
-import compression from 'compression';
-import helmet from 'helmet';
+// Swagger definition
+const swaggerDefinition = {
+  info: {
+    title: 'Node Swagger API',
+    version: '0.0.1',
+    description: 'Demonstrating how to desribe a RESTful API with Swagger'
+  },
+  host: 'localhost:4000',
+  basePath: '/'
+};
+
+// Swagger docs options
+const options = {
+  swaggerDefinition: swaggerDefinition, // import swaggerDefinitions
+  apis: ['./routes/*.js'] // path to the API docs
+};
+
+// initialize swagger-jsdoc
+const swaggerSpec = swaggerJSDoc(options);
 
 // Create the Express application object
 const app = express();
@@ -40,6 +60,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+// Swagger json route
+app.get('/swagger.json', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
   var err = new Error('Not Found');
@@ -47,15 +73,22 @@ app.use((req, res, next) => {
   next(err);
 });
 
-// Error handler
-app.use((err, req, res) => {
-  // Locally set locals and provide the error
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// Development error handler
+if (app.get('env') === 'development') {
+  app.use((err, req, res) => {
+    res.status(err.code || 500).json({
+      status: 'error',
+      message: err
+    });
+  });
+}
 
-  // Render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// Production error handler - no stacktraces leaked to user
+app.use(function(err, req, res) {
+  res.status(err.status || 500).json({
+    status: 'error',
+    message: err.message
+  });
 });
 
 module.exports = app;
