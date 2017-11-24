@@ -1,6 +1,7 @@
 {
   "name": "pst-server",
-  "description": "Project School Timetables - Automatic generation of timetables for schools",
+  "description":
+    "Project School Timetables - Automatic generation of timetables for schools",
   "version": "0.0.1",
   "main": "./bin/www",
   "engines": {
