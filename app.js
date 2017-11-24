@@ -7,6 +7,7 @@ import compression from 'compression';
 import helmet from 'helmet';
 import swaggerJSDoc from 'swagger-jsdoc';
 
+import config from './config.json';
 import index from './routes/index';
 import users from './routes/users';
 
@@ -28,7 +29,7 @@ const options = {
 };
 
 // initialize swagger-jsdoc
-const swaggerSpec = swaggerJSDoc(options);
+const swaggerSpec = swaggerJSDoc(config.swagger);
 
 // Create the Express application object
 const app = express();

@@ -1,0 +1,16 @@
+{
+  "swagger": {
+    "swaggerDefinition": {
+      "info": {
+        "title": "Node Swagger API",
+        "version": "0.0.1",
+        "description": "Demonstrating how to desribe a RESTful API with Swagger"
+      },
+      "host": "localhost: 4000",
+      "basePath": "/"
+    },
+    "apis": [
+      "./routes/*.js"
+    ]
+  }
+}
