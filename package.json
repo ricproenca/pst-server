@@ -1,7 +1,6 @@
 {
   "name": "pst-server",
-  "description":
-    "Project School Timetables - Automatic generation of timetables for schools",
+  "description": "Project School Timetables - Automatic generation of timetables for schools",
   "version": "0.0.1",
   "main": "./bin/www",
   "engines": {
@@ -29,9 +28,12 @@
     "helmet": "^3.1.0",
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
-    "pug": "~2.0.0-beta6"
+    "pug": "~2.0.0-beta6",
+    "swagger-jsdoc": "^1.9.7"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.11.0",
     "mocha": "^4.0.1"
   }
 }
