@@ -1,21 +1,30 @@
 {
   "name": "pst-server",
-  "version": "1.0.0",
   "description": "Project School Timetables - Automatic generation of timetables for schools",
-  "main": "server.js",
+  "version": "0.0.1",
+  "main": "./bin/www",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ricproenca/pst-server.git"
-  },
-  "keywords": ["timetables"],
+  "license": "MIT",
   "author": "Ricardo Proença",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ricproenca/pst-server/issues"
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "compression": "^1.6.2",
+    "debug": "~2.2.0",
+    "express": "~4.14.0",
+    "express-validator": "^3.0.0",
+    "helmet": "^3.1.0",
+    "morgan": "~1.7.0",
+    "pug": "~2.0.0-beta6",
+    "serve-favicon": "~2.3.0"
   },
-  "homepage": "https://github.com/ricproenca/pst-server#readme"
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
 }
