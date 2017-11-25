@@ -8,8 +8,9 @@ import helmet from 'helmet';
 import swaggerJSDoc from 'swagger-jsdoc';
 
 import config from './config.json';
-import index from './routes/index';
-import users from './routes/users';
+
+import indexRoute from './routes/index';
+import usersRoute from './routes/users';
 
 // initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(config.swagger);
@@ -41,8 +42,8 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Setup routes
-app.use('/', index);
-app.use('/users', users);
+app.use('/', indexRoute);
+app.use('/users', usersRoute);
 
 // Swagger json route
 app.get('/swagger.json', function(req, res) {
@@ -52,7 +53,7 @@ app.get('/swagger.json', function(req, res) {
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });

@@ -1,8 +1,7 @@
 extends layout
 
-block content
-  h1= project
-  br
-  p Welcome to <b>#{title}</b>, <i>#{description}</i>
-  br
-  p Pay a visit to our API docs by adding '/docs' to the url...
+block title
+  div.col-sm-10
+    h1= project
+    br
+    p Welcome to <b>#{title}</b>, <i>#{description}</i>

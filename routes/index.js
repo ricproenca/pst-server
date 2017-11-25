@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+const router = express.Router();
 
 /**
  * @swagger
@@ -34,9 +34,9 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
   res.render('index', {
-    project: 'pst-server-api',
-    title: 'Project School Timetables API',
-    description: 'for automatic generation of timetables for schools'
+    project: 'Project School Timetables API',
+    title: 'PST-API',
+    description: 'designed for automatic generation of timetables for schools'
   });
 });
 

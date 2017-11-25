@@ -2,9 +2,9 @@
   "swagger": {
     "swaggerDefinition": {
       "info": {
-        "title": "Node Swagger API",
-        "version": "0.0.1",
-        "description": "Demonstrating how to desribe a RESTful API with Swagger"
+        "title": "Project School Timetables API",
+        "version": "0.1.0",
+        "description": "Automatic timetable scheduling for schools"
       },
       "host": "",
       "basePath": "/api/v1/"
