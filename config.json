@@ -6,8 +6,8 @@
         "version": "0.0.1",
         "description": "Demonstrating how to desribe a RESTful API with Swagger"
       },
-      "host": "/",
-      "basePath": "/"
+      "host": "",
+      "basePath": "/api/v1/"
     },
     "apis": [
       "./routes/*.js"
