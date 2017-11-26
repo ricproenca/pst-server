@@ -1,3 +1,6 @@
+// app/config/app.js
+'use strict';
+
 var dotenv = require('dotenv');
 dotenv.config();
 

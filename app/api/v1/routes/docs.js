@@ -1,3 +1,6 @@
+// app/api/v1/routes/docs.js
+'use strict';
+
 import express from 'express';
 import swaggerJSDoc from 'swagger-jsdoc';
 

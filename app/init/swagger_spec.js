@@ -1,3 +1,6 @@
+// app/init/swagger_spec.js
+'use strict';
+
 import swaggerJSDoc from 'swagger-jsdoc';
 
 import swaggerConfig from '../config/swagger.json';
