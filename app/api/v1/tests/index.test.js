@@ -1,3 +1,6 @@
+// app/api/v1/tests/index.test.js
+'use strict';
+
 import http from 'http';
 import assert from 'assert';
 

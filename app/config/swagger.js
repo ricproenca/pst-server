@@ -1,3 +1,6 @@
+// app/config/swagger.js
+'use strict';
+
 import appConfig from './app';
 
 module.exports = {
