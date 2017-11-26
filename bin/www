@@ -6,15 +6,16 @@
 
 require('babel-register');
 require('babel-polyfill');
+require('dotenv').config();
 
-var app = require('../app');
 var http = require('http');
+var app = require('../app/init/server');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '4000');
+var port = normalizePort(process.env.PORT || '8888');
 app.set('port', port);
 
 /**
