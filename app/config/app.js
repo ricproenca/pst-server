@@ -11,7 +11,7 @@ const commonConfig = {
 const devConfig = {
   info: commonConfig.info,
   host: 'localhost:' + process.env.PORT,
-  morgan: 'dev'
+  morgan: 'custom'
 };
 
 const prodConfig = {

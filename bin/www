@@ -9,6 +9,7 @@ require('babel-polyfill');
 require('dotenv').config();
 
 var http = require('http');
+var chalk = require('chalk');
 var app = require('../app/init/server');
 
 /**
@@ -66,12 +67,14 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
   case 'EACCES':
-    console.error(bind + ' requires elevated privileges');
+    console.error(
+      chalk.white.bgRed.bold(bind + ' requires elevated privileges')
+    );
     process.exit(1);
     break;
 
   case 'EADDRINUSE':
-    console.error(bind + ' is already in use');
+    console.error(chalk.white.bgRed.bold(bind + ' is already in use'));
     process.exit(1);
     break;
 
@@ -87,5 +90,7 @@ function onError(error) {
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  console.log('Listening on ' + bind);
+  console.log(
+    chalk.white.bgMagenta.bold('\nPST-API listening on ' + bind + '\n')
+  );
 }
