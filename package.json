@@ -11,7 +11,7 @@
     "lint:js": "eslint app.js app/api app/config app/lib app/mailer --cache",
     "devstart": "nodemon ./bin/www --exec babel-node",
     "start": "babel-node ./bin/www",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha app/api/v1/tests/**/* --require babel-register"
   },
   "main": "./api/bin/www",
   "dependencies": {
@@ -33,6 +33,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "eslint": "^4.11.0",
     "mocha": "^4.0.1"
   },
