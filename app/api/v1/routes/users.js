@@ -34,31 +34,15 @@ module.exports = router;
 
 /**
  * @swagger
- * definitions:
- *   Pup:
- *     properties:
- *       name:
- *         type: string
- *       breed:
- *         type: string
- *       age:
- *         type: integer
- *       sex:
- *         type: string
- */
-
-/**
- * @swagger
- * /api/pup:
- *   get:
- *     tags:
- *       - Puppies
- *     description: Returns all puppies
- *     produces:
- *       - application/json
- *     responses:
- *       200:
- *         description: An array of puppies
- *         schema:
- *           $ref: '#/definitions/Puppy'
+ * /api/v1/users:
+ *  get:
+ *    summary: Get users
+ *    description: Returns a list of users
+ *    produces:
+ *      - application/json
+ *    responses:
+ *      200:
+ *        description: An array of users
+ *        schema:
+ *
  */

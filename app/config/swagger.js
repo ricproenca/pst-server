@@ -13,5 +13,5 @@ module.exports = {
     host: 'localhost:4000',
     basePath: '/api/v1/'
   },
-  apis: ['./app/api/v1/routes/*.js']
+  apis: ['./app/api/v1/models/*.js', './app/api/v1/routes/*.js']
 };

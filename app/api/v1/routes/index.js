@@ -8,7 +8,7 @@ import docsRoute from './docs';
 module.exports = () => {
   return app => {
     app.use('/', indexRoute);
-    app.use('/users', usersRoute);
+    app.use('/api/v1/users', usersRoute);
     app.use('/swagger.json', docsRoute);
   };
 };
