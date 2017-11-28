@@ -10,26 +10,25 @@ import helmet from 'helmet';
 import appConfig from '../config/app';
 import utils from '../utils/middleware';
 
-module.exports = () => {
-  return app => {
-    // Add various HTTP headers to improve app security
-    app.use(helmet());
+const morganFormatter =
+  appConfig[process.env.NODE_ENV].morgan === 'custom'
+    ? utils.formatMorgan
+    : appConfig[process.env.NODE_ENV].morgan;
 
-    // HTTP request morgan middleware
-    let morganFormatter = appConfig[process.env.NODE_ENV].morgan === 'custom'
-      ? utils.formatMorgan
-      : appConfig[process.env.NODE_ENV].morgan;
+module.exports = {
+  // Add various HTTP headers to improve app security
+  helmet: helmet(),
 
-    app.use(morgan(morganFormatter));
+  // HTTP request morgan middleware
+  morgan: morgan(morganFormatter),
 
-    // Body parsing middleware.
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: false }));
+  // Body parsing middleware.
+  jsonBodyParser: bodyParser.json(),
+  urlEncodedBodyParser: bodyParser.urlencoded({ extended: false }),
 
-    // Express middleware request data validator
-    app.use(expressValidator());
+  // Express middleware request data validator
+  expressValidator: expressValidator(),
 
-    // Routes compression middleware
-    app.use(compression());
-  };
+  // Routes compression middleware
+  compression: compression()
 };

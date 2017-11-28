@@ -9,18 +9,23 @@ import routes from '../api/v1/routes';
 // Create the Express application object
 const app = express();
 
-// Setup middleware
-middleware()(app);
+// Setup Middleware
+app.use(middleware.helmet);
+app.use(middleware.morgan);
+app.use(middleware.jsonBodyParser);
+app.use(middleware.urlEncodedBodyParser);
+app.use(middleware.expressValidator);
+app.use(middleware.compression);
 
 // Setup View engine
 app.set('views', path.join(__dirname, '..', 'views'));
 app.set('view engine', 'pug');
 
-// Serve static files
+// Serve Static files
 app.use(express.static(path.join(__dirname, '..', '..', 'public')));
 
-// Setup routes
-routes()(app);
+// Setup Routes
+app.use(routes);
 
 // 404 Error handler
 app.use((req, res, next) => {

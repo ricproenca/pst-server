@@ -16,10 +16,11 @@ const padRight = (str, len) => {
 };
 
 const formatMorganString = (tokens, req, res) => {
-  var status = tokens.status(req, res);
-  var statusColor = status >= 500
-    ? 'red'
-    : status >= 400 ? 'yellow' : status >= 300 ? 'cyan' : 'green';
+  const status = tokens.status(req, res);
+  const statusColor =
+    status >= 500
+      ? 'red'
+      : status >= 400 ? 'yellow' : status >= 300 ? 'cyan' : 'green';
 
   return (
     chalk.reset(
