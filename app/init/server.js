@@ -3,6 +3,7 @@
 
 import express from 'express';
 import path from 'path';
+
 import middleware from '../middleware';
 import routes from '../api/v1/routes';
 
