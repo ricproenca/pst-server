@@ -31,18 +31,3 @@ router
   });
 
 module.exports = router;
-
-/**
- * @swagger
- * /api/v1/users:
- *  get:
- *    summary: Get users
- *    description: Returns a list of users
- *    produces:
- *      - application/json
- *    responses:
- *      200:
- *        description: An array of users
- *        schema:
- *
- */

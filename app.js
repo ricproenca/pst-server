@@ -39,7 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Setup routes
 app.use('/', indexRoute);
 app.use('/users', usersRoute);
-app.use('/swagger.json', docsRoute);
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {

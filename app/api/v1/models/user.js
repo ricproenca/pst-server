@@ -2,16 +2,3 @@
 'use strict';
 
 module.exports = {};
-
-/**
- * @swagger
- * definitions:
- *   User:
- *     properties:
- *       email:
- *         type: string
- *       username:
- *         type: string
- *       password:
- *         type: string
- */
