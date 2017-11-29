@@ -6,16 +6,16 @@ import swaggerUi from 'swagger-ui-express';
 import yaml from 'yamljs';
 
 import indexRoute from './base';
-import usersRoute from './users';
+import userRoute from './user';
 
 const router = express.Router();
-const swaggerDocument = yaml.load('./app/api/v1/docs/petstore.yaml');
+const swaggerDocumentV1 = yaml.load('./app/api/v1/docs/rest-interface.yaml');
 
 // Setup base routes
 router.use('/', indexRoute);
-router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+router.use('/docs/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocumentV1));
 
 // Setup API routes
-router.use('/api/v1/users', usersRoute);
+router.use('/api/v1/users', userRoute);
 
 module.exports = router;
