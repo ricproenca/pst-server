@@ -1,22 +1,15 @@
 // app/init/server.js
 'use strict';
 
-import express from 'express';
 import path from 'path';
+import express from 'express';
 
+import lib from '../lib';
 import middleware from '../middleware';
 import routes from '../api/v1/routes';
 
-// Create the Express application object
-const app = express();
-
-// Setup Middleware
-app.use(middleware.helmet);
-app.use(middleware.morgan);
-app.use(middleware.jsonBodyParser);
-app.use(middleware.urlEncodedBodyParser);
-app.use(middleware.expressValidator);
-app.use(middleware.compression);
+// get express application object
+const app = lib.appExpress;
 
 // Setup View engine
 app.set('views', path.join(__dirname, '..', 'views'));
@@ -36,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 // Development error handler
-if (app.get('env') === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app.use((err, req, res) => {
     res.status(err.code || 500).json({
       status: 'error',

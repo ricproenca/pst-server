@@ -1,34 +1,30 @@
 // app/middleware/index.js
 'use strict';
 
-import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import expressValidator from 'express-validator';
 import compression from 'compression';
 import helmet from 'helmet';
 
-import appConfig from '../config/app';
-import utils from '../utils/middleware';
+import lib from '../lib';
 
-const morganFormatter =
-  appConfig[process.env.NODE_ENV].morgan === 'custom'
-    ? utils.formatMorgan
-    : appConfig[process.env.NODE_ENV].morgan;
+// get express application object
+const app = lib.appExpress;
 
-module.exports = {
-  // Add various HTTP headers to improve app security
-  helmet: helmet(),
+// get logger
+const logger = lib.appLogger;
 
-  // HTTP request morgan middleware
-  morgan: morgan(morganFormatter),
+app.use(helmet());
 
-  // Body parsing middleware.
-  jsonBodyParser: bodyParser.json(),
-  urlEncodedBodyParser: bodyParser.urlencoded({ extended: false }),
+// HTTP request morgan middleware
+app.use(logger);
 
-  // Express middleware request data validator
-  expressValidator: expressValidator(),
+// Body parsing middleware.
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-  // Routes compression middleware
-  compression: compression()
-};
+// Express middleware request data validator
+app.use(expressValidator());
+
+// Routes compression middleware
+app.use(compression());

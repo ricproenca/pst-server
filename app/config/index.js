@@ -1,7 +1,8 @@
 // app/config/app.js
 'use strict';
+import path from 'path';
 
-var dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
 const commonConfig = {
@@ -11,6 +12,7 @@ const commonConfig = {
     description: 'Automatic timetable scheduling for schools'
   }
 };
+
 const devConfig = {
   info: commonConfig.info,
   host: 'localhost:' + process.env.PORT,
