@@ -15,9 +15,7 @@ host: localhost:9000
 # basePath prefixes all resource paths
 basePath: /docs/v1
 
-#
 schemes:
-  # tip: remove http to make production-grade
   - http
 
 # format of bodies a client can send (Content-Type)
@@ -34,8 +32,11 @@ paths:
     x-swagger-router-controller: user
 
     get:
+      tags:
+        - "Users"
       operationId: getAll
       description: Get the users list
+
       # define the type of response for Success "200" and Error
       responses:
         200:
@@ -48,6 +49,8 @@ paths:
             $ref: "#/definitions/ErrorResponse"
 
     post:
+      tags:
+        - "Users"
       operationId: save
       description: Add a new user to the list
       # user info to be stored
@@ -71,10 +74,11 @@ paths:
             $ref: "#/definitions/ErrorResponse"
 
   /user/{id}:
-
     # our controller name
     x-swagger-router-controller: user
     get:
+      tags:
+        - "Users"
       operationId: getOne
       description: Get a user
       # define the type of response for Success "200" and Error
@@ -99,6 +103,8 @@ paths:
             $ref: "#/definitions/ErrorResponse"
 
     put:
+      tags:
+        - "Users"
       operationId: update
       description: Update a user
       # define the parameters
@@ -127,6 +133,8 @@ paths:
             $ref: "#/definitions/ErrorResponse"
 
     delete:
+      tags:
+        - "Users"
       operationId: delete
       description: Delete a user
       # define the parameters
@@ -149,47 +157,9 @@ paths:
 # complex objects have schema definitions
 definitions:
 
-  # GET /user successful response
-  GetUsersListResponse:
-    required:
-      - users
-    properties:
-      # The array of users
-      users:
-        type: array
-        items:
-          type: object
-          properties:
-            id:
-              type: string
-            email:
-              type: string
-            username:
-              type: string
-            name:
-              type: string
-
-  GetUserResponse:
-    required:
-      - id
-      - email
-      - username
-    properties:
-      id:
-        type: string
-      email:
-        type: string
-      username:
-        type: string
-      name:
-        type: string
-
   User:
     type: object
     properties:
-      id:
-        type: string
-        description: unique user id
       email:
         type: string
         description: valid user email
@@ -205,6 +175,39 @@ definitions:
     required:
       - username
       - email
+
+  GetUserResponse:
+    properties:
+      id:
+        type: string
+      email:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+      name:
+        type: string
+
+  GetUsersListResponse:
+    properties:
+      # The array of users
+      users:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            email:
+              type: string
+            username:
+              type: string
+            password:
+              type: string
+            name:
+              type: string
+
   ErrorResponse:
     required:
       - code
