@@ -1,7 +1,6 @@
 {
   "name": "pst-server",
-  "description":
-    "Project School Timetables - Automatic generation of timetables for schools",
+  "description": "Project School Timetables - Automatic generation of timetables for schools",
   "author": "Ricardo Proença <ricproenca@gmail.com>",
   "version": "0.1.0",
   "engines": {
@@ -11,6 +10,7 @@
   "scripts": {
     "lint:js": "eslint app/api app/config app/lib app/mailer --cache",
     "devstart": "nodemon ./bin/www --exec babel-node",
+    "herokustart": "heroku local web",
     "start": "babel-node ./bin/www",
     "test": "mocha app/api/v1/tests/**/* --require babel-register"
   },
