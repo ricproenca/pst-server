@@ -10,19 +10,22 @@ const commonConfig = {
     title: 'Project School Timetables API',
     version: '0.1.0',
     description: 'Automatic timetable scheduling for schools'
-  }
+  },
+  usersDbUrl: process.env.USERS_CONNECT_URL
 };
 
 const devConfig = {
   info: commonConfig.info,
   host: 'localhost:' + process.env.PORT,
-  morgan: 'custom'
+  morgan: 'custom',
+  usersDbUrl: commonConfig.usersDbUrl
 };
 
 const prodConfig = {
   info: commonConfig.info,
   host: 'https://pst-server.herokuapp.com/',
-  morgan: 'common'
+  morgan: 'common',
+  usersDbUrl: commonConfig.usersDbUrl
 };
 
 module.exports = {

@@ -12,23 +12,22 @@ var http = require('http');
 var chalk = require('chalk');
 var app = require('../app/init/server');
 
+require('../app/db/mongodb');
+
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '8888');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-
 var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -36,7 +35,6 @@ server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
@@ -56,7 +54,6 @@ function normalizePort(val) {
 /**
  * Event listener for HTTP server "error" event.
  */
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -68,13 +65,13 @@ function onError(error) {
   switch (error.code) {
   case 'EACCES':
     console.error(
-      chalk.white.bgRed.bold(bind + ' requires elevated privileges')
+      chalk.red.bold(bind + ' requires elevated privileges')
     );
     process.exit(1);
     break;
 
   case 'EADDRINUSE':
-    console.error(chalk.white.bgRed.bold(bind + ' is already in use'));
+    console.error(chalk.red.bold(bind + ' is already in use'));
     process.exit(1);
     break;
 
@@ -86,11 +83,10 @@ function onError(error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   console.log(
-    chalk.white.bgMagenta.bold('\nPST-API listening on ' + bind + '\n')
+    chalk.green.bold('\nPST-API listening on ' + bind)
   );
 }
