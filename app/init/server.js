@@ -1,12 +1,14 @@
 // app/init/server.js
 'use strict';
 
+/*eslint no-unused-vars: "off"*/
+
 import path from 'path';
 import express from 'express';
 
 import lib from '../lib';
-import middleware from '../middleware';
-import routes from '../api/v1/routes';
+import middleware from '../api/middleware';
+import routes from '../api/routes';
 
 // get express application object
 const app = lib.appExpress;

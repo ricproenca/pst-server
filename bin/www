@@ -87,6 +87,6 @@ function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   console.log(
-    chalk.green.bold('\nPST-API listening on ' + bind)
+    chalk.magenta.bold('\nPST-API listening on ' + bind)
   );
 }
