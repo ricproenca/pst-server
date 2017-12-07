@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Production error handler - no stacktraces leaked to user
-app.use(function(err, req, res) {
+app.use((err, req, res) => {
   res.status(err.status || 500).json({
     status: 'error',
     message: err.message
