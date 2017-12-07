@@ -1,4 +1,4 @@
-// app/api/v1/tests/index.test.js
+// app/api/tests/index.test.js
 'use strict';
 
 let chai = require('chai');

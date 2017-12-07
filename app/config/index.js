@@ -1,6 +1,5 @@
 // app/config/app.js
 'use strict';
-import path from 'path';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -8,27 +7,28 @@ dotenv.config();
 const commonConfig = {
   info: {
     title: 'Project School Timetables API',
-    version: '0.1.0',
-    description: 'Automatic timetable scheduling for schools'
+    project: 'PST-API',
+    description: 'an Automatic timetable scheduling for schools.',
+    version: '0.1.0'
   },
+  host: 'localhost:' + process.env.PORT,
   usersDbUrl: process.env.USERS_CONNECT_URL
 };
 
-const devConfig = {
-  info: commonConfig.info,
-  host: 'localhost:' + process.env.PORT,
-  morgan: 'custom',
-  usersDbUrl: commonConfig.usersDbUrl
+const configuration = {
+  development: {
+    info: commonConfig.info,
+    host: commonConfig.host,
+    usersDbUrl: commonConfig.usersDbUrl,
+    morgan: 'custom'
+  },
+  production: {
+    info: commonConfig.info,
+    host: commonConfig.host,
+    usersDbUrl: commonConfig.usersDbUrl,
+    morgan: 'common'
+  },
+  test: {}
 };
 
-const prodConfig = {
-  info: commonConfig.info,
-  host: 'https://pst-server.herokuapp.com/',
-  morgan: 'common',
-  usersDbUrl: commonConfig.usersDbUrl
-};
-
-module.exports = {
-  development: devConfig,
-  production: prodConfig
-};
+module.exports = configuration[process.env.NODE_ENV];

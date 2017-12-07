@@ -6,7 +6,7 @@ import expressValidator from 'express-validator';
 import compression from 'compression';
 import helmet from 'helmet';
 
-import lib from '../lib';
+import lib from '../../lib';
 
 // get express application object
 const app = lib.appExpress;
@@ -19,7 +19,10 @@ app.use(helmet());
 // HTTP request morgan middleware
 app.use(logger);
 
-// Body parsing middleware.
+/**
+ * As far as we are going to use the JSON format for communication,
+ * this middleware helps to transparently use JSON objects without manually converting them.
+ */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

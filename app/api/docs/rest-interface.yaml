@@ -13,7 +13,7 @@ info:
 host: localhost:9000
 
 # basePath prefixes all resource paths
-basePath: /docs/v1
+basePath: /docs/
 
 schemes:
   - http
