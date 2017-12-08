@@ -12,7 +12,7 @@ const commonConfig = {
     version: '0.1.0'
   },
   host: 'localhost:' + process.env.PORT,
-  usersDbUrl: process.env.USERS_CONNECT_URL
+  usersDbUrl: process.env.MONGODB_URI
 };
 
 const configuration = {
