@@ -3,7 +3,7 @@
 
 import express from 'express';
 
-import baseRoute from './base';
+import rootRoute from './root';
 import userRoute from './user';
 
 const router = express.Router();
@@ -11,7 +11,7 @@ const router = express.Router();
 /**
  * Set the route handler for the base url.
  */
-router.use('/', baseRoute);
+router.use('/', rootRoute);
 
 /**
  * Set the route handler for the api url.

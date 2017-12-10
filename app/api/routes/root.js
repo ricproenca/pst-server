@@ -3,14 +3,14 @@
 
 import express from 'express';
 
-import baseController from '../controllers/base';
+import rootController from '../controllers/root';
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  baseController.renderView(res);
+  rootController.renderView(res);
 });
 
-router.use('/docs', baseController.serveDoc, baseController.setupDoc);
+router.use('/docs', rootController.serveDoc, rootController.setupDoc);
 
 module.exports = router;

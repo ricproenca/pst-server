@@ -1,4 +1,4 @@
-// app/api/controllers/base.js
+// app/api/controllers/root.js
 'use strict';
 
 import yaml from 'yamljs';
@@ -7,7 +7,7 @@ import config from '../../config';
 
 const swaggerDocument = yaml.load('./app/api/docs/rest-interface.yaml');
 
-const baseUrlController = {
+const rootController = {
   renderView: res => {
     res.render('index', {
       title: config.info.title,
@@ -20,4 +20,4 @@ const baseUrlController = {
   serveDoc: swaggerUi.serve
 };
 
-module.exports = baseUrlController;
+module.exports = rootController;
