@@ -6,7 +6,7 @@ import expressValidator from 'express-validator';
 import compression from 'compression';
 import helmet from 'helmet';
 
-import lib from '../../lib';
+import lib from '../lib';
 
 // get express application object
 const app = lib.appExpress;

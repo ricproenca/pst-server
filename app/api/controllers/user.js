@@ -1,7 +1,7 @@
 // app/api/controllers/user.js
 'use strict';
 
-class BaseController {
+class UserController {
   static authenticate(req, res, callback) {
     res.send('should auth user with callback');
     callback();
@@ -27,4 +27,4 @@ class BaseController {
     res.send('should delete user');
   }
 }
-module.exports = BaseController;
+module.exports = UserController;

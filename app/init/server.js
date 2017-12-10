@@ -7,7 +7,7 @@ import path from 'path';
 import express from 'express';
 
 import lib from '../lib';
-import middleware from '../api/middleware';
+import middleware from '../middleware';
 import routes from '../api/routes';
 
 // get express application object

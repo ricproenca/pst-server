@@ -1,4 +1,4 @@
-// app/api/auth/auth.js
+// app/auth/auth.js
 'use strict';
 
 module.exports = {};
