@@ -6,13 +6,8 @@ import expressValidator from 'express-validator';
 import compression from 'compression';
 import helmet from 'helmet';
 
-import lib from '../lib';
-
-// get express application object
-const app = lib.appExpress;
-
-// get logger
-const logger = lib.appLogger;
+import app from '../lib/server';
+import logger from '../lib/logger';
 
 app.use(helmet());
 
