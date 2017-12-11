@@ -4,9 +4,9 @@
 import mongoose from 'mongoose';
 import chalk from 'chalk';
 
-import config from '../config';
+import config from '../config/db';
 
-const url = config.usersDbUrl;
+const url = config.authDbUrl;
 const options = { useMongoClient: true };
 
 /**
