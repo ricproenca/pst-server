@@ -6,9 +6,10 @@
 import path from 'path';
 import express from 'express';
 
-import app from '../lib/server';
 import middleware from '../middleware';
 import routes from '../api/routes';
+
+const app = express();
 
 // Setup View engine
 app.set('views', path.join(__dirname, '..', 'views'));

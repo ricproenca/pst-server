@@ -5,9 +5,11 @@ import bodyParser from 'body-parser';
 import expressValidator from 'express-validator';
 import compression from 'compression';
 import helmet from 'helmet';
+import express from 'express';
 
-import app from '../lib/server';
 import logger from '../lib/logger';
+
+const app = express();
 
 app.use(helmet());
 
