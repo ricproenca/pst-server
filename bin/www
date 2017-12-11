@@ -12,7 +12,7 @@ var http = require('http');
 var chalk = require('chalk');
 var app = require('../app/init/server');
 
-require('../app/db/mongodb');
+require('../app/db/auth-mongo');
 
 /**
  * Get port from environment and store in Express.

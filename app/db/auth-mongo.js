@@ -12,7 +12,6 @@ const options = { useMongoClient: true };
 /**
  * The Mongoose library now has the default Promise implementation deprecated,
  * so we need to plugin custom implementation.
- * This is the pluggable design principle.
  */
 mongoose.Promise = global.Promise;
 
